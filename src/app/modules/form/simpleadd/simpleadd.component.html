@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <form [formGroup]="addmore">
+    <div class="card">
+      <div class="card-header text-center">Customer from</div>
+      <div class="card-body">
+
+
+        <div class="row">
+          <div class="col-sm-4">
+            <mat-form-field appearance="outline">
+              <mat-label>First name</mat-label>
+              <input matInput formControlName="fname">
+              <!-- <mat-error *ngIf="(f.title.dirty && f.title.invalid==true )">
+                    <span>Please Enter Valid Number</span>
+                  </mat-error> -->
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field appearance="outline">
+              <mat-label>last name</mat-label>
+              <input matInput formControlName="lname">
+              <!-- <mat-error *ngIf="(f.title.dirty && f.title.invalid==true )">
+                    <span>Please Enter Valid Number</span>
+                  </mat-error> -->
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Phone Number</mat-label>
+              <input matInput formControlName="phoneN">
+              <!-- <mat-error *ngIf="(f.title.dirty && f.title.invalid==true )">
+                    <span>Please Enter Valid Number</span>
+                  </mat-error> -->
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
+              <!-- <mat-error *ngIf="(f.title.dirty && f.title.invalid==true )">
+                    <span>Please Enter Valid Number</span>
+                  </mat-error> -->
+            </mat-form-field>
+          </div>
+
+
+          <!-- <div class="col-sm-1">
+            <button mat-mini-fab color="primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          </div> -->
+        </div>
+        <!-- <form [formGroup]="addmore" #indentAddForm=ngForm  (ngSubmit)="onSubmit()" > -->
+        <div class="row">
+          <div class="col-sm-12 table-responsive" formArrayName="itemRows">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="white-space: nowrap;padding-right: 4em;float:center"><span
+                      class="required-field"></span>Hobbies </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let itemrow of addmore.controls.itemRows['controls']; let i=index" [formGroupName]="i">
+                  <td style="white-space: nowrap;"> <input id="hobbies{{i}}" formControlName="hobbies"
+                      class="form-control"></td>
+                  <td></td>
+                  <td></td>
+                  <!-- <td style="white-space: nowrap;"> <input readonly id="learn{{i}}" formControlName="learn" class="form-control"></td> -->
+                  <!-- <td> <input formControlName="bf_stock" readonly id="bfStock{{i}}" class="form-control reset"></td> -->
+                  <!-- <td> <textarea id="learn{{i}}" formControlName="learn" class="form-control reset"></textarea></td> -->
+                  <!-- <td> <textarea formControlName="descripition" class="form-control reset"></textarea></td> -->
+                  <!-- <td> <textarea formControlName="suggestion" class="form-control reset"></textarea></td> -->
+                  <td> <button *ngIf="addmore.controls.itemRows.controls.length > 1" (click)="deleteRow(i)"
+                      class="btn btn-danger"><i class="fa fa-minus-circle" aria-hidden="true"></i></button></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td> <button type="button" (click)="addNewRow()" class="btn btn-primary"><i class="fa fa-plus-circle"
+                        aria-hidden="true"></i></button></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+        </div>
+        <!-- </form> -->
+
+      </div>
+      <div class="card-footer">
+        <button mat-raised-button color="primary">Primary</button>
+      </div>
+    </div>
+  </form>
+
+</div>
